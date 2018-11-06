@@ -3,10 +3,11 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-
+import renderLoop from './views/cell.vue'
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
+Vue.component(renderLoop, renderLoop)
 Vue.component('tb-heading', {
   render: function(createElement) {
     console.log(this)
