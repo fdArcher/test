@@ -31,11 +31,9 @@ export default {
     render(h) {
         // return <ul>{this.bar}acs{this.items.map(item => `<li>${item.name}</li>`)}</ul>
         var dirprop = {
-            data: { class: 'orgchart',
-                options: {}
-            }
+            class: 'orgchart'
         }
-        return <div {...dirprop}><renderLoop data={hrData}/></div>
+        return <div {...dirprop}><renderLoop data={this.hrData}/></div>
     },
     
     props: {
