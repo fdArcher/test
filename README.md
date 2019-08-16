@@ -99,8 +99,6 @@
                 有true 即中止遍历, 返回数组中第一个符合条件的项，没有则返回null
             </code>
         </div>
-        <hr>
-        <h2>二，流程控制     <small>代替for 循环</small></h2>
         <div>
             <h3>1、返回数组</h3>
             <h4>map</h4>
@@ -112,3 +110,50 @@
             </code>
         </div>
     </div>
+###示例过滤并整理一组对象 （找到score大于10并且按照时间排序，同时转化姓名）
+        <code> 
+                var arr = [{
+              score: 7,
+              createTime: '2019-07-16',
+              name: '姓名'
+          },{
+              score: 11,
+              createTime: '2019-03-16',
+              name: '姓名'
+          },{
+              score: 6,
+              createTime: '2019-08-16',
+              name: '姓名'
+          },{
+              score: 15,
+              createTime: '2019-10-16',
+              name: '姓名'
+          },{
+              score: 12,
+              createTime: '2017-03-16',
+              name: '姓名'
+          }]
+          var result = arr.filter(function(item) {
+              return item.score > 10
+          }).sort(function(a,b) {
+              return new Date(a.createTime).getTime() - new Date(b.createTime).getTime()
+          }).map(function (item, index) {
+              return Object.assign({}, item, {
+                  name: '转化'+item.name+(index+1)
+              })
+          })
+        /**  执行结果为 result: [{
+              score: 12,
+              createTime: '2017-03-16',
+              name: '转化姓名1'
+          },{
+              score: 11,
+              createTime: '2019-03-16',
+              name: '转化姓名2'
+          },{
+              score: 15,
+              createTime: '2019-10-16',
+              name: '转化姓名3'
+          }]
+          */
+        </code>
