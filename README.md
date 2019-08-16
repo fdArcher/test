@@ -2,8 +2,8 @@
 
 > A Vue.js project
 
-<div style="text-align: left;padding-left: 20px">
-        <h1>数组</h1>
+<div style="padding-left: 20px">
+        <h1 style="text-align: left">数组</h1>
         <h2>一，常用的高阶函数     <small>按返回值分类</small></h2>
         <div>
             <h3>1、返回数组</h3>
@@ -110,8 +110,8 @@
             </code>
         </div>
     </div>
-###示例过滤并整理一组对象 （找到score大于10并且按照时间排序，同时转化姓名）
-        <code> 
+<h3>示例过滤并整理一组对象 （找到score大于10并且按照时间排序，同时转化姓名）</h3>
+     <div>   <code> 
                 var arr = [{
               score: 7,
               createTime: '2019-07-16',
@@ -157,3 +157,68 @@
           }]
           */
         </code>
+     </div>
+     <h1>Vue组件 常用生命周期</h1>
+     <div>   <h3>created  mounted  beforeDestoryed Destoryed
+             <div> <code> 
+               </code>
+              </div>
+     </div>
+     <h1>Vue组件 中this 能访问到的东西</h1>
+     <div>   <h3>Dom this.$el
+             <div> <code> 
+               </code>
+              </div>
+     </div>
+     <div>   <h3>props 父级传入的属性名或者方法名 this.propsData, this.propsMethods
+             <div> <code> 
+               </code>
+              </div>
+     </div>
+     <div>   <h3>inject 注入的外层provide的依赖对象 ['injectObj'] 
+             <div> <code> 
+               </code>
+              </div>
+     </div>
+     <div>   <h3>data函数命名的属性
+             <div> <code> 
+               </code>
+              </div>
+     </div>
+     <div>   <h3>coputed 计算属性
+             <div> <code> 
+               </code>
+              </div>
+     </div>
+     <div>   <h3>methods中的方法名
+             <div> <code> 
+               </code>
+              </div>
+     </div>
+     <div>   <h3>Vue 原型挂载的属性名，方法名，全局store状态
+             <div> <code> 
+               </code>
+              </div>
+     </div>
+     
+     <div>   <h3>具名元素或者子组件 this.$refs  (在生命周期mounted之后才可调用)
+             <div> <code> 
+               </code>
+              </div>
+     </div>
+     <h1>Vue组件 中template中 能访问到的东西，上面this中的所有外</h1>
+     <div>   <h3> 还有过滤器filters
+             <div> 全局的或者局部定义的都可以<code>
+               </code>
+              </div>
+              <h3>插槽slot-scope中的作用域属性
+             <div> 全局的或者局部定义的都可以<code>
+               </code>
+              </div>
+     </div>
+     <h1>Vue组件 构造方法</h1>
+     <div>   <h3>mixins(继承所有的钩子及属性方法，即深层Object.assign继承了除mixins外的其他构造属性), components(可全局，template), slot（template）
+             <div> 全局的或者局部定义的都可以<code>
+               </code>
+              </div>
+     </div>
