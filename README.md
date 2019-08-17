@@ -222,12 +222,11 @@
               </div>
      </div>
      
-     <div>   <h3>具名元素或者子组件 this.$refs  (在生命周期mounted之后才可调用)
+     ### 具名元素或者子组件 this.$refs  (在生命周期mounted之后才可调用)
              <div> <code> 
                </code>
               </div>
-     </div>
-     <h1>Vue组件 中template中 能访问到的东西，上面this中的所有外</h1>
+     # Vue组件 中template中 能访问到的东西，上面this中的所有外
      <div>   <h3> 还有过滤器filters
              <div> 全局的或者局部定义的都可以<code>
                </code>
@@ -237,9 +236,9 @@
                </code>
               </div>
      </div>
-     <h1>Vue组件 构造方法</h1>
-     <div>   <h3>mixins(继承所有的钩子及属性方法，即深层Object.assign继承了除mixins外的其他构造属性), components(可全局，template), slot（template）
+     # Vue组件 构造方法</h1>
+     ### mixins(继承所有的钩子及属性方法，即深层Object.assign继承了除mixins外的其他构造属性), components(可全局，template), slot（template）
              <div> 全局的或者局部定义的都可以<code>
                </code>
               </div>
-     </div>
+   
