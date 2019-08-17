@@ -1,7 +1,5 @@
 # mytest
 
-> A Vue.js project
-
 <div style="padding-left: 20px">
         <h1 style="text-align: left">数组</h1>
         <h2>一，常用的高阶函数     <small>按返回值分类</small></h2>
@@ -11,7 +9,7 @@
             <code>
                 var arr = [1,2,3].map(function(number, index){
                     return number * number + index
-                })
+                })</code><br><code>
                 // arr 为 [1, 5, 11]
                 对当前数组数据进行整理得到一个映射的新数组
             </code>
@@ -20,7 +18,7 @@
                 var arr = [1,2,3,4,5].filter(function(item, index){
                     return item > 3
                 })
-                <br>
+                </code><br><code>
                 // arr 为 [4, 5]
                 对当前数组按条件过滤，取return为true的所有项得到一个新数组
             </code>
@@ -35,7 +33,7 @@
                     }].sort(function(a, b){
                     return a.value - b.value
                 })
-                <br>
+                </code><br><code>
                 // arr 为 [{
                         name: 'fir',value: 5
                     },{
@@ -51,7 +49,7 @@
             <code>
                 var arr = [1,2,3].slice(1)
                 // arr 为 [2, 3]
-                <br>
+                </code><br><code>
                 var arr = [1,2,3].slice(0,2)
                 // arr 为 [1, 2]
                 取指定下标之间的项得到一个新数组
@@ -61,7 +59,7 @@
             <code>
                 var arr = [1,2,3]
                 var deleteItems = arr.splice(0, 2, ['a'])
-                <br>
+                </code><br><code>
                 // arr 为 ['a', 3]
                 deleteItems 为 [1, 2]
                 改变原数组并且得到删除项所组成的新数组
@@ -76,8 +74,8 @@
                     return number > 4
                 })
                 // res 为false
-                <br>
-                有true 即中止遍历
+                </code><br><code>
+                //有true 即中止遍历
                 等价于
                 var arr  = [1,2,3]
                 var res = true
@@ -94,6 +92,7 @@
                 var res = [1,2,3].find(function(number, index){
                     return nubmer > 2
                 })
+                    </code><br><code>
                 // res 为 3
                 <br>
                 有true 即中止遍历, 返回数组中第一个符合条件的项，没有则返回null
@@ -105,7 +104,7 @@
             <code>
                 var arr = [1,2,3].map(function(number, index){
                     return number * number + index
-                })
+                })</code><br><code>
                 // arr 为 [1, 5, 11]
             </code>
         </div>
@@ -132,7 +131,7 @@
               score: 12,
               createTime: '2017-03-16',
               name: '姓名'
-          }]
+          }]</code><br><code>
           var result = arr.filter(function(item) {
               return item.score > 10
           }).sort(function(a,b) {
@@ -141,7 +140,7 @@
               return Object.assign({}, item, {
                   name: '转化'+item.name+(index+1)
               })
-          })
+          })</code><br><code>
         /**  执行结果为 result: [{
               score: 12,
               createTime: '2017-03-16',
@@ -160,43 +159,65 @@
      </div>
      <h1>Vue组件 常用生命周期</h1>
      <div>   <h3>created  mounted  beforeDestoryed Destoryed
-             <div> <code> 
+             <div> <code>
+                 其中created在函数属性初始化时执行;
+                 mounted在render函数第一次执行之后执行
+                 beforeDestoryed()在vue实例销毁之后执行（可以解绑dom绑定事件）
+                Destoryed在实例完全销毁之后执行
                </code>
               </div>
      </div>
      <h1>Vue组件 中this 能访问到的东西</h1>
      <div>   <h3>Dom this.$el
              <div> <code> 
+                     当前组件实例最外层的dom元素
+                     可以使用this.$el.querySelector('css选择器')选中dom节点，比document.querySelector效率要高
                </code>
               </div>
      </div>
      <div>   <h3>props 父级传入的属性名或者方法名 this.propsData, this.propsMethods
              <div> <code> 
+                     优先级最高的属性，会覆盖data,computed,methods 中的属性和方法
                </code>
               </div>
      </div>
      <div>   <h3>inject 注入的外层provide的依赖对象 ['injectObj'] 
              <div> <code> 
+                     依赖注入的属性和方法，常用的有form  列表和表单中都有注入，组件可以由此拿到很多依赖属性
+                     inject的注入顺序在data函数初始化之前
+                     子组件 inject: ['chart'],
+  父组件provide() {
+    return{ chart: this }
+  },
                </code>
               </div>
      </div>
      <div>   <h3>data函数命名的属性
              <div> <code> 
+                     最常规的组件属性，常用的控制属性，展示数据都放在这里面
                </code>
               </div>
      </div>
-     <div>   <h3>coputed 计算属性
+     <div>   <h3>computed 计算属性优先级最低的属性，会被data,inject,props覆盖
              <div> <code> 
+             computed: {
+                    ddX() { // 计算全部节点x值
+                      return this.c.shiroImg.calcx/138 * this.freshX // (x - 220 ) * this.scaleNum
+                    },
+                }
                </code>
               </div>
      </div>
      <div>   <h3>methods中的方法名
-             <div> <code> 
+             <div> <code>
+                     组件自定义方法
                </code>
               </div>
      </div>
      <div>   <h3>Vue 原型挂载的属性名，方法名，全局store状态
-             <div> <code> 
+             <div> <code>
+                     常用的有this.$confirm,this.$alert,this.$store.getters,this.$deepCopy,this.$createElement,this.dateUtil,this.$math,
+                        this.children,this.$parent
                </code>
               </div>
      </div>
