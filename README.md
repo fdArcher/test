@@ -99,13 +99,11 @@
             </code>
         </div>
         <div>
-            <h3>1、返回数组</h3>
-            <h4>map</h4>
+            <h3>1、返回字符串</h3>
+            <h4>join</h4>
             <code>
-                var arr = [1,2,3].map(function(number, index){
-                    return number * number + index
-                })</code><br><code>
-                // arr 为 [1, 5, 11]
+                var str = [11,22,33].join(',')</code><br><code>
+                // str为"11,22,33"
             </code>
         </div>
     </div>
